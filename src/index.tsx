@@ -2,11 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import ListaClientes from './screens/clientes/listaTodosClientes'
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+        <Switch>
+            <Route path="/" exact={true} component={App} />
+            <Route path="/clientes" component={ListaClientes} />
+        </Switch>
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
