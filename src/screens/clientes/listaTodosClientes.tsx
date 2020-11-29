@@ -1,7 +1,46 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getAllClientes } from '../../api/api';
+import { Table } from 'antd'
+import { Link } from 'react-router-dom'
 
 function ListaClientes(){
-    return 'Lista Clientes'
+    const [clientes, setClientes] = useState<any>([])
+
+    async function handleFetchClientes() {
+        try {
+            const clientesApi = await getAllClientes()
+            setClientes(clientesApi)
+        } catch (e) {
+            console.error(e)
+        }
+    }
+
+    useEffect(() => {
+      console.log('useEffect')
+      handleFetchClientes()
+    }, [])
+
+    const columns = [
+        {
+          title: 'Nome',
+          dataIndex: 'nome',
+          key: 'nome',
+        },
+        {
+          title: 'E-mail',
+          dataIndex: 'email',
+          key: 'email',
+        }
+      ];
+
+    return (
+        <div>
+          <Link to="/cadastracliente">
+            Cadastrar clientes
+          </Link>
+            <Table columns={columns} dataSource={clientes}/>
+        </div>
+    )
 }
 
 export default ListaClientes;

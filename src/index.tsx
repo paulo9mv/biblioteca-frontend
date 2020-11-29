@@ -5,6 +5,8 @@ import App from './App';
 import ListaClientes from './screens/clientes/listaTodosClientes'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import 'antd/dist/antd.css';
+import CriaClientes from './screens/clientes/CriaClientes';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,6 +14,7 @@ ReactDOM.render(
         <Switch>
             <Route path="/" exact={true} component={App} />
             <Route path="/clientes" component={ListaClientes} />
+            <Route path="/cadastracliente" component={CriaClientes} />
         </Switch>
     </BrowserRouter>
   </React.StrictMode>,
