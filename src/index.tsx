@@ -9,10 +9,12 @@ import 'antd/dist/antd.css';
 import CriaClientes from './screens/clientes/CriaClientes';
 import ListaLivros from './screens/livros/listaTodosLivros';
 import CriaLivros from './screens/livros/CriaLivros';
+import Main from './screens/Main';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
+      <Main>
         <Switch>
             <Route path="/" exact={true} component={App} />
             <Route path="/clientes" component={ListaClientes} />
@@ -20,6 +22,7 @@ ReactDOM.render(
             <Route path="/livros" component={ListaLivros} />
             <Route path="/cadastralivros" component={CriaLivros} />
         </Switch>
+      </Main>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
