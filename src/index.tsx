@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import 'antd/dist/antd.css';
 import CriaClientes from './screens/clientes/CriaClientes';
+import ListaLivros from './screens/livros/listaTodosLivros';
+import CriaLivros from './screens/livros/CriaLivros';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -15,6 +17,8 @@ ReactDOM.render(
             <Route path="/" exact={true} component={App} />
             <Route path="/clientes" component={ListaClientes} />
             <Route path="/cadastracliente" component={CriaClientes} />
+            <Route path="/livros" component={ListaLivros} />
+            <Route path="/cadastralivros" component={CriaLivros} />
         </Switch>
     </BrowserRouter>
   </React.StrictMode>,
