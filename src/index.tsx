@@ -10,6 +10,7 @@ import CriaClientes from './screens/clientes/CriaClientes';
 import ListaLivros from './screens/livros/listaTodosLivros';
 import CriaLivros from './screens/livros/CriaLivros';
 import Main from './screens/Main';
+import Emprestimo from './screens/emprestimo/Emprestimo';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.render(
             <Route path="/cadastracliente" component={CriaClientes} />
             <Route path="/livros" component={ListaLivros} />
             <Route path="/cadastralivros" component={CriaLivros} />
+            <Route path="/emprestimo" component={Emprestimo} />
         </Switch>
       </Main>
     </BrowserRouter>

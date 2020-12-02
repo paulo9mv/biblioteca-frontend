@@ -71,3 +71,20 @@ export async function postLivros(data: ICreateLivro) {
         throw e
     }
 }
+
+/**
+ * EMPRÉSTIMO
+ */
+
+export async function postEmprestimo(clienteId: string, livroId: string) {
+    try {
+        const response =  await fetch(BASE_URL + `/livros/${clienteId}/${livroId}`, {
+            method: 'POST'
+        })
+
+        return response
+    } catch (e) {
+        throw e
+    }
+}
+
