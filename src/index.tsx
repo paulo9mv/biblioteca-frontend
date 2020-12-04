@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import ListaClientes from './screens/clientes/listaTodosClientes'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
@@ -14,6 +13,7 @@ import Emprestimo from './screens/emprestimo/Emprestimo';
 import ListaEmprestimo from './screens/emprestimo/ListaEmprestimo';
 import EditaClientes from './screens/clientes/EditaClientes';
 import EditaLivros from './screens/livros/EditaLivros';
+import App from './screens/homepage/App';
 
 ReactDOM.render(
   <React.StrictMode>

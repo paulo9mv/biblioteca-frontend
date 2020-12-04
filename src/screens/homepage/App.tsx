@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import { Breadcrumb, Table } from 'antd';
-import { fetchTopClientes } from './api/api';
+import { fetchTopClientes } from '../../api/api';
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
       dataIndex: ['cliente', 'nome'],
       key: 'nome'
     },{
-      title: 'Livros emprestados',
+      title: 'Livros lidos',
       dataIndex: 'livrosEmprestados',
       key: 'quantidade'
     }
@@ -38,10 +38,7 @@ function App() {
         <Breadcrumb.Item>Home</Breadcrumb.Item>
       </Breadcrumb>
       Sistema de biblioteca
-
       <div style={{margin: 16, fontSize: 18, fontWeight: 'bold'}}>Maiores leitores</div>
-
-
       <Table columns={columns} dataSource={topClientes}/>
     </div>
   );
