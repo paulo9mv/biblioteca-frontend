@@ -51,6 +51,12 @@ function ListaEmprestimo(){
 
             return isDelayed ? <Tag color="magenta">Em atraso</Tag> : <Tag color="green">Regular</Tag>
           }}/>
+          <Column title='Data do empréstimo' key='dataEmprestimo' render={(_, record: any) => {
+            const createdTime = record.emprestimo.createdAt
+            var momentCreatedTime = moment(createdTime);
+
+            return momentCreatedTime.format('DD/MM/YY, h:mm:ss a')
+          }}/>
           <Column
             title='Ações'
             key='acoes'

@@ -34,7 +34,7 @@ function ListaLivros(){
         history.go(0)
       } catch (e) {
         notification.error({
-          message: 'Ocorreu um erro'
+          message: e.message || 'Ocorreu um erro'
         })
       }
     }

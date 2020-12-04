@@ -9,6 +9,12 @@ export async function fetchDeleteClient(id) {
         const response = await fetch(BASE_URL + '/clientes/' + id, {
             method: 'DELETE'
         })
+
+        if (response.status !== 200) {
+            const error = await response.json()
+            throw error
+        }
+
         const data = await response.json()
     
         return data
@@ -141,9 +147,15 @@ export async function getRegistroLivro(id: string) {
 
 export async function fetchDeleteLivro(id) {
     try {
-        const response = await fetch(BASE_URL + '/clientes/' + id, {
+        const response = await fetch(BASE_URL + '/livros/' + id, {
             method: 'DELETE'
         })
+
+        if (response.status !== 200) {
+            const error = await response.json()
+            throw error
+        }
+
         const data = await response.json()
     
         return data
