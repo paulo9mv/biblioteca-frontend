@@ -91,6 +91,46 @@ export async function getAllLivros() {
     }
 }
 
+export async function putRegistroLivro(id, data) {
+    try {
+        const response = await fetch(BASE_URL + '/livros/' + id, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+    
+        return response
+    } catch (e) {
+        throw e
+    }
+}
+
+export async function getRegistroLivro(id: string) {
+    try {
+        const response = await fetch(BASE_URL + '/livros/' + id)
+        const data = await response.json()
+    
+        return data
+    } catch (e) {
+        throw e
+    }
+}
+
+export async function fetchDeleteLivro(id) {
+    try {
+        const response = await fetch(BASE_URL + '/clientes/' + id, {
+            method: 'DELETE'
+        })
+        const data = await response.json()
+    
+        return data
+    } catch (e) {
+        throw e
+    }
+}
+
 export interface ICreateLivro {
     titulo: string,
     autor: string

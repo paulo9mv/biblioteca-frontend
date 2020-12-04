@@ -13,6 +13,7 @@ import Main from './screens/Main';
 import Emprestimo from './screens/emprestimo/Emprestimo';
 import ListaEmprestimo from './screens/emprestimo/ListaEmprestimo';
 import EditaClientes from './screens/clientes/EditaClientes';
+import EditaLivros from './screens/livros/EditaLivros';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -25,6 +26,7 @@ ReactDOM.render(
             <Route path="/editacliente/:id" component={EditaClientes} />
             <Route path="/livros" component={ListaLivros} />
             <Route path="/cadastralivros" component={CriaLivros} />
+            <Route path="/editalivro/:id" component={EditaLivros} />
             <Route path="/emprestimo" component={Emprestimo} />
             <Route path="/visualizarEmprestimo" component={ListaEmprestimo} />
         </Switch>

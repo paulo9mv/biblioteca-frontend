@@ -23,15 +23,6 @@ function CriaLivros(){
       initialValues={{ remember: true }}
       onFinish={onFinish}
     >
-      <Link to="/clientes">
-        Ver todos Clientes
-      </Link>
-      <Link to="/cadastracliente">
-        Cadastrar clientes
-      </Link>
-      <Link to="/livros">
-        Ver todos livros
-      </Link>
 
       <Form.Item
         label="Título"
