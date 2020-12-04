@@ -65,11 +65,6 @@ export default class Main extends React.Component {
                   <span>Visualizar</span>
                 </Link>
               </Menu.Item>
-              <Menu.Item key="12">
-                <Link to='/devolucao'>
-                  <span>Devolução</span>
-                </Link>
-              </Menu.Item>
             </SubMenu>
           </Menu>
         </Sider>

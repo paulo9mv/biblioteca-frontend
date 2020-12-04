@@ -70,6 +70,11 @@ export async function postCliente(data: ICreateCliente) {
             }
         })
 
+        if (response.status !== 200) {
+            const error = await response.json()
+            throw error
+        }
+
         return response
     } catch (e) {
         throw e
@@ -174,7 +179,8 @@ export async function postEmprestimo(clienteId: string, livroId: string) {
         })
 
         if (response.status !== 200) {
-            throw response.json()
+            const error = await response.json()
+            throw error
         }
 
         return response

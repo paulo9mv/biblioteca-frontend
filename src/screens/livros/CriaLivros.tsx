@@ -1,15 +1,17 @@
 import React from 'react';
 import { postLivros } from '../../api/api';
-import { Button, Form, Input, notification } from 'antd'
-import { Link } from 'react-router-dom'
+import { Button, Form, Input, InputNumber, notification } from 'antd'
+import { useHistory } from 'react-router-dom'
 
 function CriaLivros(){
+    const history = useHistory()
     const onFinish = async values => {
       try {
         await postLivros(values)
         notification.success({
           message: 'Livro adicionado com sucesso'
         })
+        history.push('/livros')
       } catch (e) {
         notification.error({
           message: 'Ocorreu um erro'
@@ -19,14 +21,15 @@ function CriaLivros(){
 
     return (
         <Form
-      name="basic"
-      initialValues={{ remember: true }}
-      onFinish={onFinish}
-    >
+          name="basic"
+          initialValues={{ remember: true }}
+          onFinish={onFinish}
+        >
 
       <Form.Item
         label="Título"
         name="titulo"
+        required
         rules={[{ required: true, message: 'Por favor, insira um titulo!' }]}
       >
         <Input />
@@ -35,9 +38,19 @@ function CriaLivros(){
       <Form.Item
         label="Autor"
         name="autor"
+        required
         rules={[{ required: true, message: 'Por favor, insira um autor!' }]}
       >
         <Input />
+      </Form.Item>
+
+      <Form.Item
+        label="Quantidade de exemplares"
+        name="quantidade"
+        required
+        rules={[{ required: true, message: 'Por favor, insira um autor!' }]}
+      >
+        <InputNumber />
       </Form.Item>
 
       <Form.Item>

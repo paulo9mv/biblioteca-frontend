@@ -44,10 +44,11 @@ function ListaLivros(){
           <Table dataSource={livros}>
           <Column title='Título' dataIndex='titulo' key='titulo'/>
           <Column title='Autor' dataIndex='autor' key='autor'/>
+          <Column title='Exemplares' dataIndex='quantidade' key='quantidade'/>
           <Column
             title='Ações'
             key='acoes'
-            render={(_, record: any) =>{
+            render={(_, record: any) => {
               return (
                 <Row>
                   <Button

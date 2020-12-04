@@ -42,6 +42,7 @@ function ListaClientes(){
     return (
         <div>
           <Table dataSource={clientes}>
+          <Column title='ID' dataIndex='id' key='idbanco' render={record => record.substr(record.length - 4)}/>
           <Column title='Nome' dataIndex='nome' key='nome'/>
           <Column title='Email' dataIndex='email' key='email'/>
           <Column
