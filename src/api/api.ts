@@ -81,6 +81,22 @@ export async function postCliente(data: ICreateCliente) {
     }
 }
 
+export async function fetchTopClientes() {
+    try {
+        const response =  await fetch(BASE_URL + '/clientes/top/top')
+
+        if (response.status !== 200) {
+            const error = await response.json()
+            throw error
+        }
+
+        const data = await response.json()
+        return data
+    } catch (e) {
+        throw e
+    }
+}
+
 /**
  * LIVROS
  */

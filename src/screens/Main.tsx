@@ -27,7 +27,9 @@ export default class Main extends React.Component {
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
         <div className="logo">
-          <img src={imagem} height={150} alt={'logo'}/>
+          <Link to='/'>
+            <img src={imagem} height={150} alt={'logo'}/>
+          </Link>
           </div>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">        
             <SubMenu key="sub1" icon={<UserOutlined />} title="Clientes">
