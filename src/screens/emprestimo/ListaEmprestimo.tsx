@@ -19,24 +19,6 @@ function ListaEmprestimo(){
     handleFetchEmprestimos()
   }, [])
 
-    const columns = [
-      {
-        title: 'Quem emprestou',
-        dataIndex: 'clienteId',
-        key: 'clienteId',
-      },
-      {
-        title: 'Qual livro emprestou',
-        dataIndex: 'livroId',
-        key: 'livroId',
-      },
-      {
-        title: 'Ações',
-        dataIndex: '',
-        key: 'acoes'
-      }
-    ];
-
     async function handleDevolution(id) {
       try {
         await devolverLivro(id)
