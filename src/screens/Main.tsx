@@ -1,4 +1,4 @@
-import { Layout, Menu } from 'antd';
+import { Col, Layout, Menu } from 'antd';
 import {
   UserOutlined,
   BookOutlined,
@@ -76,7 +76,9 @@ export default class Main extends React.Component {
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }} />
           <Content style={{ margin: '16px 16px' }}>
-            {this.props.children}
+            <Col span={16}>
+              {this.props.children}
+            </Col>
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>

@@ -34,15 +34,6 @@ function ListaLivros(){
 
     return (
         <div>
-          <Link to="/clientes">
-            Ver todos clientes
-          </Link>
-          <Link to="/cadastracliente">
-            Cadastrar clientes
-          </Link>
-          <Link to="/cadastralivros">
-            Cadastrar livros
-          </Link>
             <Table columns={columns} dataSource={livros}/>
         </div>
     )

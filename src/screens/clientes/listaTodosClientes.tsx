@@ -35,9 +35,7 @@ function ListaClientes(){
 
     return (
         <div>
-            <Col span={12}>
-              <Table columns={columns} dataSource={clientes}/>
-            </Col>
+          <Table columns={columns} dataSource={clientes}/>
         </div>
     )
 }
