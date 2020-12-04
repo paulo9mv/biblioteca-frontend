@@ -34,8 +34,8 @@ function ListaEmprestimo(){
 
     return (
         <Table dataSource={emprestimos}>
-          <Column title='Quem emprestou' dataIndex='clienteId' key='clienteId'/>
-          <Column title='Qual livro emprestou' dataIndex='livroId' key='livroId'/>
+          <Column title='Quem emprestou' dataIndex={['cliente', 'nome']} key='clienteId'/>
+          <Column title='Qual livro emprestou' dataIndex={['livro', 'titulo']} key='livroId'/>
           <Column
             title='Ações'
             key='acoes'

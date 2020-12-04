@@ -3,10 +3,12 @@ import { postEmprestimo } from '../../api/api';
 import { Button, Form, notification } from 'antd'
 import SelectCliente from '../../components/SelectCliente';
 import SelectLivro from '../../components/SelectLivro';
+import { useHistory } from 'react-router-dom'
 
 function Emprestimo(){
     const [cliente, setClienteId] = useState<string>()
     const [livro, setLivroId] = useState<string>()
+    const history = useHistory()
 
     const onFinish = async values => {
       try {
@@ -15,11 +17,12 @@ function Emprestimo(){
         console.log(cliente, livro)
         const clienteId = cliente.id
         const livroId = livro.id
-        const response = await postEmprestimo(clienteId, livroId)
+        await postEmprestimo(clienteId, livroId)
 
         notification.success({
           message: 'Emprestimo registrado com sucesso'
         })
+        history.push('/visualizarEmprestimo')
       } catch (e) {
         notification.error({
           message: e.message || 'Ocorreu um erro'
