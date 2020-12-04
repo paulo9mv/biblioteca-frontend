@@ -74,7 +74,7 @@ export default class Main extends React.Component {
           </Menu>
         </Sider>
         <Layout className="site-layout">
-          <Header className="site-layout-background" style={{ padding: 0 }} />
+          <Header className="site-layout-background" style={{ paddingLeft: 32, fontSize: 18 }}>Biblioteca</Header>
           <Content style={{ margin: '16px 16px' }}>
             <Col span={16}>
               {this.props.children}
