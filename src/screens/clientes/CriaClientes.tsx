@@ -23,9 +23,6 @@ function CriaClientes(){
       initialValues={{ remember: true }}
       onFinish={onFinish}
     >
-      <Link to="/clientes">
-        Ver todos Clientes
-      </Link>
 
       <Form.Item
         label="Nome"

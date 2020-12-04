@@ -28,6 +28,33 @@ export async function getAllClientes() {
     }
 }
 
+export async function getClient(id) {
+    try {
+        const response = await fetch(BASE_URL + '/clientes/' + id)
+        const data = await response.json()
+    
+        return data
+    } catch (e) {
+        throw e
+    }
+}
+
+export async function putClient(id, data) {
+    try {
+        const response = await fetch(BASE_URL + '/clientes/' + id, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+    
+        return response
+    } catch (e) {
+        throw e
+    }
+}
+
 export interface ICreateCliente {
     nome: string,
     email: string

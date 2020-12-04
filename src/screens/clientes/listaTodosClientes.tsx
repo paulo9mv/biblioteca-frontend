@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { fetchDeleteClient, getAllClientes } from '../../api/api';
-import { Button, Col, notification, Popconfirm, Row, Table } from 'antd'
-import { Link, useHistory } from 'react-router-dom'
+import { Button, notification, Popconfirm, Row, Table } from 'antd'
+import { useHistory } from 'react-router-dom'
 import Column from 'antd/lib/table/Column';
 import {
   EditOutlined,
@@ -57,7 +57,10 @@ function ListaClientes(){
                   icon={<EditOutlined />}
                   style={{ marginRight: 8 }}
                   onClick={() => {
-                    
+                    history.push({
+                      pathname: `/editacliente/${record.id}`,
+                      state: { detail: record.id }
+                    })
                   }}
                 />
                   <Popconfirm

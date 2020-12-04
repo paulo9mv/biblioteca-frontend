@@ -12,6 +12,7 @@ import CriaLivros from './screens/livros/CriaLivros';
 import Main from './screens/Main';
 import Emprestimo from './screens/emprestimo/Emprestimo';
 import ListaEmprestimo from './screens/emprestimo/ListaEmprestimo';
+import EditaClientes from './screens/clientes/EditaClientes';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -21,6 +22,7 @@ ReactDOM.render(
             <Route path="/" exact={true} component={App} />
             <Route path="/clientes" component={ListaClientes} />
             <Route path="/cadastracliente" component={CriaClientes} />
+            <Route path="/editacliente/:id" component={EditaClientes} />
             <Route path="/livros" component={ListaLivros} />
             <Route path="/cadastralivros" component={CriaLivros} />
             <Route path="/emprestimo" component={Emprestimo} />
