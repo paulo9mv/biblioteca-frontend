@@ -77,6 +77,7 @@ export async function postLivros(data: ICreateLivro) {
  */
 
 export async function postEmprestimo(clienteId: string, livroId: string) {
+    console.log('ppostEMpre', clienteId, livroId)
     try {
         const response =  await fetch(BASE_URL + `/livros/${clienteId}/${livroId}`, {
             method: 'POST'

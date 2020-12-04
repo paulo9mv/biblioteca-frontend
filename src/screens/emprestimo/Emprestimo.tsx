@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { postLivros } from '../../api/api';
+import { postEmprestimo, postLivros } from '../../api/api';
 import { Button, Form, Input, notification } from 'antd'
 import { Link } from 'react-router-dom'
 import SelectCliente from '../../components/SelectCliente';
@@ -12,10 +12,14 @@ function Emprestimo(){
     const onFinish = async values => {
       try {
         const { cliente, livro } = values
-        const { clienteId } = cliente
-        const { livroId } = livro
+        console.log(values)
+        console.log(cliente, livro)
+        const clienteId = cliente.id
+        const livroId = livro.id
+        const response = await postEmprestimo(clienteId, livroId)
+
         notification.success({
-          message: 'Livro adicionado com sucesso'
+          message: 'Emprestimo registrado com sucesso'
         })
       } catch (e) {
         notification.error({
@@ -43,14 +47,14 @@ function Emprestimo(){
 
       <Form.Item
         label="Clientes"
-        name="clienteId"
+        name="cliente"
       >
         <SelectCliente value={cliente} onChange={handleOnChange}/>
       </Form.Item>
 
       <Form.Item
         label="Livros"
-        name="livroId"
+        name="livro"
       >
         <SelectLivro value={livro} onChange={handleLivroOnChange}/>
       </Form.Item>
