@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { postEmprestimo, postLivros } from '../../api/api';
-import { Button, Form, Input, notification } from 'antd'
-import { Link } from 'react-router-dom'
+import { postEmprestimo } from '../../api/api';
+import { Button, Form, notification } from 'antd'
 import SelectCliente from '../../components/SelectCliente';
 import SelectLivro from '../../components/SelectLivro';
 
@@ -23,7 +22,7 @@ function Emprestimo(){
         })
       } catch (e) {
         notification.error({
-          message: 'Ocorreu um erro'
+          message: e.message || 'Ocorreu um erro'
         })
       }
     };

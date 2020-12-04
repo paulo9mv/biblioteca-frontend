@@ -1,17 +1,16 @@
 import { Layout, Menu } from 'antd';
 import {
-  DesktopOutlined,
-  PieChartOutlined,
-  TeamOutlined,
   UserOutlined,
-  BookOutlined
+  BookOutlined,
+  HddOutlined
 } from '@ant-design/icons';
 import React from 'react';
 import './Main.css'
+import imagem from '../assets/img/book.png'
 import { Link } from 'react-router-dom'
-
 const { Header, Content, Footer, Sider } = Layout;
 const { SubMenu } = Menu;
+
 export default class Main extends React.Component {
   state = {
     collapsed: false,
@@ -27,19 +26,10 @@ export default class Main extends React.Component {
     return (
       <Layout style={{ minHeight: '100vh' }}>
         <Sider collapsible collapsed={collapsed} onCollapse={this.onCollapse}>
-          <div className="logo" style={{color: '#FFFFFF'}}>
-            <BookOutlined style={{color:'#FFFFFF'}}/>
-            Biblioteca PDS
+        <div className="logo">
+          <img src={imagem} height={150} alt={'logo'}/>
           </div>
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1" icon={<PieChartOutlined />}>
-              <Link to='/emprestimo'>
-                <span>Empréstimo</span>
-              </Link>
-            </Menu.Item>
-            <Menu.Item key="2" icon={<DesktopOutlined />}>
-              Devolução
-            </Menu.Item>
+          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">        
             <SubMenu key="sub1" icon={<UserOutlined />} title="Clientes">
               <Menu.Item key="3">
                 <Link to='/clientes'>
@@ -52,7 +42,7 @@ export default class Main extends React.Component {
                 </Link>
               </Menu.Item>
             </SubMenu>
-            <SubMenu key="sub2" icon={<TeamOutlined />} title="Livros">
+            <SubMenu key="sub2" icon={<BookOutlined />} title="Livros">
               <Menu.Item key="6">
                 <Link to='/livros'>
                   <span>Visualizar</span>
@@ -64,11 +54,28 @@ export default class Main extends React.Component {
                 </Link>
               </Menu.Item>
             </SubMenu>
+            <SubMenu key="sub3" icon={<HddOutlined />} title="Empréstimos">
+              <Menu.Item key="10">
+                <Link to='/emprestimo'>
+                  <span>Emprestar</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="11">
+                <Link to='/visualizarEmprestimo'>
+                  <span>Visualizar</span>
+                </Link>
+              </Menu.Item>
+              <Menu.Item key="12">
+                <Link to='/devolucao'>
+                  <span>Devolução</span>
+                </Link>
+              </Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
         <Layout className="site-layout">
           <Header className="site-layout-background" style={{ padding: 0 }} />
-          <Content style={{ margin: '0 16px' }}>
+          <Content style={{ margin: '16px 16px' }}>
             {this.props.children}
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>

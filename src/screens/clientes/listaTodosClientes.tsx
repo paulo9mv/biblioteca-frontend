@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getAllClientes } from '../../api/api';
-import { Table } from 'antd'
+import { Col, Table } from 'antd'
 import { Link } from 'react-router-dom'
 
 function ListaClientes(){
@@ -35,10 +35,9 @@ function ListaClientes(){
 
     return (
         <div>
-          <Link to="/cadastracliente">
-            Cadastrar clientes
-          </Link>
-            <Table columns={columns} dataSource={clientes}/>
+            <Col span={12}>
+              <Table columns={columns} dataSource={clientes}/>
+            </Col>
         </div>
     )
 }

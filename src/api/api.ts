@@ -76,12 +76,26 @@ export async function postLivros(data: ICreateLivro) {
  * EMPRÉSTIMO
  */
 
-export async function postEmprestimo(clienteId: string, livroId: string) {
-    console.log('ppostEMpre', clienteId, livroId)
+export async function getAllEmprestimos() {
     try {
-        const response =  await fetch(BASE_URL + `/livros/${clienteId}/${livroId}`, {
+        const response = await fetch(BASE_URL + '/livros/emprestimo/all')
+
+        const data = await response.json()
+        return data
+    } catch (e) {
+        throw e
+    }
+}
+
+export async function postEmprestimo(clienteId: string, livroId: string) {
+    try {
+        const response =  await fetch(BASE_URL + `/livros/emprestimo/${clienteId}/${livroId}`, {
             method: 'POST'
         })
+
+        if (response.status !== 200) {
+            throw response.json()
+        }
 
         return response
     } catch (e) {
@@ -89,3 +103,13 @@ export async function postEmprestimo(clienteId: string, livroId: string) {
     }
 }
 
+export async function devolverLivro(id: string) {
+    try {
+        const response = await fetch(BASE_URL + '/livros/emprestimo/' + id, {
+            method: 'DELETE'
+        })
+        return response
+    } catch (e) {
+        throw e
+    }
+}
